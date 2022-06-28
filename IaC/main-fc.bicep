@@ -21,17 +21,3 @@ resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
     serverFarmId: '${resourceGroup().id}/providers/Microsoft.Web/serverfarms/${appServicePlan.name}'
   }
 }
-
-resource webApplication2 'Microsoft.Web/sites@2018-11-01' = {
-  name: 'pocskillingupfc2'
-  dependsOn:[
-    appServicePlan
-  ]
-  location: resourceGroupLocation
-  tags: {
-    'hidden-related:${resourceGroup().id}/providers/Microsoft.Web/serverfarms/${appServicePlan.name}': 'Resource'
-  }
-  properties: {
-    serverFarmId: '${resourceGroup().id}/providers/Microsoft.Web/serverfarms/${appServicePlan.name}'
-  }
-}
