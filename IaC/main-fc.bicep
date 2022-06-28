@@ -20,7 +20,7 @@ resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
   }
 }
 
-resource webApplication 'Microsoft.Web/sites@2018-11-01' = {
+resource webApplication2 'Microsoft.Web/sites@2018-11-01' = {
   name: 'pocskillingupfc2'
   dependsOn:[
     appServicePlan
