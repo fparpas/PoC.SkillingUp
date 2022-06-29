@@ -1,10 +1,10 @@
-param location string = 'France Central'
+param locationToDeploy string = 'France Central'
 
 @description('Generated from /subscriptions/cf7315f7-8ab2-4194-9bc7-dfe186b74e24/resourceGroups/PoC.SkillingUp/providers/Microsoft.Web/serverfarms/ASP-PoCSkillingUp-Plan')
 resource ASPPoCSkillingUpPlan 'Microsoft.Web/serverfarms@2021-03-01' = {
   name: 'ASP-PoCSkillingUp-Plan'
   kind: 'app'
-  location: location
+  location: locationToDeploy
   tags: {
   }
   properties: {
@@ -48,7 +48,7 @@ resource ASPPoCSkillingUpPlan 'Microsoft.Web/serverfarms@2021-03-01' = {
 resource pocskillingup 'Microsoft.Web/sites@2021-03-01' = {
   name: 'pocskillingup'
   kind: 'app'
-  location: location
+  location: locationToDeploy
   tags: {
   }
   properties: {
