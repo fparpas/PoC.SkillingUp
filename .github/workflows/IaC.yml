@@ -20,5 +20,5 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./IaC/main.bicep
-        parameters: locationToDeploy=${{ secrets.AZURE_LOCATION }}
+        parameters: locationToDeploy="${{ secrets.AZURE_LOCATION }}"
         failOnStdErr: false
