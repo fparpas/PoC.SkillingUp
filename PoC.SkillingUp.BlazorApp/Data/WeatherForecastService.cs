@@ -17,4 +17,6 @@ namespace PoC.SkillingUp.BlazorApp.Data
             }).ToArray());
         }
     }
+
+   
 }
