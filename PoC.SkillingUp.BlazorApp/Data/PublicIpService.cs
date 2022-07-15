@@ -6,7 +6,7 @@ namespace PoC.SkillingUp.BlazorApp.Data
         {
             using (var client = new HttpClient())
             {
-                var content = await client.GetStringAsync("http://api.ipify.org");
+                var content = await client.GetStringAsync("https://api.ipify.org");
 
                 return content;
             }
