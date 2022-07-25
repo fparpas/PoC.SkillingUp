@@ -1,0 +1,55 @@
+@page "/showprofile"
+
+@using Microsoft.AspNetCore.Components.Authorization@using Microsoft.Identity.Web
+@using Microsoft.Graph
+@using System.Security.Claims
+@inject Microsoft.Graph.GraphServiceClient GraphServiceClient
+@inject MicrosoftIdentityConsentAndConditionalAccessHandler ConsentHandler
+
+<AuthorizeView>
+    <Authorized>
+        <h1>Me</h1>
+
+        <p>This component demonstrates fetching data from a service.</p>
+
+        @if (user == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Claim Type</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user.Claims)
+                    {
+                        <tr>
+                            <td>@item.Type</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </Authorized>
+</AuthorizeView>
+@code {
+    ClaimsPrincipal? user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            user = ConsentHandler.User;
+        }
+        catch (Exception ex)
+        {
+            ConsentHandler.HandleException(ex);
+        }
+    }
+                }
